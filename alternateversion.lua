@@ -1,17 +1,10 @@
-modeid = io.read()
-modeid = tonumber(modeid)
--- change this pls
-modename = io.read()
--- leave unchanged, it will change for you
-delta = io.read()
-delta = tonumber(delta)
--- important, change this too if needed
 price = io.read()
 price = tonumber(price)
--- literally the most important bro
+modename = io.read()
 ttmc = io.read()
 ttmc = tonumber(ttmc)
--- time left until change the mode
+delta = io.read()
+delta = tonumber(delta)
 function modechanger()
   chance = math.random() * 100
   if ttmc == 0 then
