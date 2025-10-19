@@ -7,52 +7,42 @@ ttmc = 1
 -- time left until change the mode
 function modechanger()
   chance = math.random() * 100
-  if chance <0 then
-     mode = 0
-     modename = "Stable"
- elseif chance <12.5 then
-    mode = 1
-     modename = "Slow Rise"
-  elseif chance <37.5 then
-     mode = 2
-    modename = "Slow Fall"
-  elseif chance <62.5 then
-    mode = 3
-    modename = "Fast Rise"
-  elseif chance < 75 then
-    mode = 4
-    modename = "Fast Fall"
-  elseif chance <87.5 then
-    mode = 5
-    modename = "Chaotic"
+  if ttmc == 0 then
+    if chance <0 then
+      modeid = 0
+      modename = "Stable"
+    elseif chance <12.5 then
+      modeid = 1
+      modename = "Slow Rise"
+    elseif chance <37.5 then
+      modeid = 2
+      modename = "Slow Fall"
+    elseif chance <62.5 then
+      modeid = 3
+      modename = "Fast Rise"
+    elseif chance <75 then
+      modeid = 4
+      modename = "Fast Fall"
+    elseif chance <87.5 then
+      modeid = 5
+      modename = "Chaotic"
+    end
   end
   ttmc = math.random(1, 10)
 end
 function chaoticmodechanger()
-  chance = math.random() * 100
-  if chance >= 70 then
-    modeid = 5
-    modename = "Chaotic"
-  elseif chance <70 then
-    modeid = 0
-    modename = "Stable"
-  elseif chance <73.75 then
-    modeid = 1
-    modename = "Slow Rise"
-  elseif chance < 81.25 then
-    modeid = 2
-    modename = "Slow Fall"
-  elseif chance < 89.75 then
-    modeid = 3
-    modename = "Fast Rise"
-  elseif chance < 93.5 then
-    modeid = 4
-    modename = "Fast Fall"
-  elseif chance < 97.25 then
-    modeid = 5
-    modename = "Chaotic"
-   end
-  ttmc = math.random(1,10)
+  if modeid == 3 or modeid == 4 then
+    chance = math.random() * 100
+    print(chance)
+    if chance <= 70 then
+      modeid = 5
+      modename = "Chaotic"
+    else
+      modechanger()
+    end
+  else
+    modechanger()
+  end
 end
 function changevalue()
   if modeid == 0 then
@@ -135,11 +125,12 @@ end
 changevalue()
 if modeid == 3 or modeid == 4 and ttmc == 0 then
   chaoticmodechanger()
-elseif ttmc == 0 and modeid ~= 3 and modeid ~= 4 then
+elseif modeid ~= 3 or modeid ~= 4 and ttmc == 0 then
   modechanger()
 end
--- detect which modechanger to use
+--detect which modechanger to use
 price = math.max(0.01, price)
 -- make sure price can't go below 0
-print(modeid,modename,delta,price)
+
+print("modeid:"..modeid,"modename:"..modename, "delta:"..delta, "price:"..price,"chance:"..chance)
 --print the variables
