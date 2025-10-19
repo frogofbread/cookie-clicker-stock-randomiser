@@ -131,5 +131,5 @@ end
 price = math.max(0.01, price)
 -- make sure price can't go below 0
 
-print("modeid:" .. modeid .. "\nmodename:" .. modename .. "\ndelta:" .. delta .. "\nprice:" .. price .. "\nchance:" .. chance)
+print("modeid:" .. modeid .. "\nmodename:" .. modename .. "\ndelta:" .. delta .. "\nprice:" .. price)
 --print the variables
