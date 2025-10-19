@@ -1,8 +1,11 @@
-modeid = 4
+modeid = 0
+-- change this pls
 modename = "Stable"
 -- leave unchanged, it will change for you
 delta = -2
+-- important, change this too if needed
 price = 0
+-- literally the most important bro
 ttmc = 1
 -- time left until change the mode
 function modechanger()
