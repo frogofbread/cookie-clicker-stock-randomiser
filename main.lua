@@ -6,7 +6,7 @@ delta = -2
 -- important, change this too if needed
 price = 0
 -- literally the most important bro
-ttmc = 1
+ttmc = 6
 -- time left until change the mode
 function modechanger()
   chance = math.random() * 100
@@ -134,5 +134,5 @@ end
 price = math.max(0.01, price)
 -- make sure price can't go below 0
 
-print("modeid:" .. modeid .. "\nmodename:" .. modename .. "\ndelta:" .. delta .. "\nprice:" .. price)
+print("modeid: " .. modeid .. "\nmodename: " .. modename .. "\ndelta: " .. delta .. "\nprice: " .. price.. "\ntime to mode change: "..ttmc)
 --print the variables
