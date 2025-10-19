@@ -5,6 +5,21 @@ ttmc = io.read()
 ttmc = tonumber(ttmc)
 delta = io.read()
 delta = tonumber(delta)
+function modeidcreator()
+  if modename == "Stable" then
+    modeid = 0
+  elseif modename == "Slow Rise" then
+    modeid = 1
+  elseif modename == "Slow Fall" then
+    modeid = 2
+  elseif modename == "Fast Rise" then
+    modeid = 3
+  elseif modename == "Fast Fall" then
+    modeid = 4
+  elseif modename == "Chaotic" then
+    modeid = 5
+  end
+end
 function modechanger()
   chance = math.random() * 100
   if ttmc == 0 then
@@ -118,6 +133,7 @@ function changevalue()
   ttmc = ttmc - 1
   price = price + (price * (delta/100))
 end
+modeidcreator()
 changevalue()
 if modeid == 3 or modeid == 4 and ttmc == 0 then
   chaoticmodechanger()
@@ -149,5 +165,5 @@ if chance <= 10 then
   delta2 = delta + 0.15
   delta = delta1 + math.random() * (delta2 - delta1)
 end
-print("modeid: " .. modeid .. "\nmodename: " .. modename .. "\ndelta: " .. delta .. "\nprice: " .. price.. "\ntime to mode change: "..ttmc)
+print("price: " .. price.. "\nmode: " .. modename .. "\ntime to mode change: "..ttmc.."\ndelta: " .. delta)
 --print the variables
