@@ -6,17 +6,17 @@ ttmc = tonumber(ttmc)
 delta = io.read()
 delta = tonumber(delta)
 function modeidcreator()
-  if modename == "Stable" then
+  if modename == "stable" then
     modeid = 0
-  elseif modename == "Slow Rise" then
+  elseif modename == "slow rise" then
     modeid = 1
-  elseif modename == "Slow Fall" then
+  elseif modename == "slow fall" then
     modeid = 2
-  elseif modename == "Fast Rise" then
+  elseif modename == "fast rise" then
     modeid = 3
-  elseif modename == "Fast Fall" then
+  elseif modename == "fast fall" then
     modeid = 4
-  elseif modename == "Chaotic" then
+  elseif modename == "chaotic" then
     modeid = 5
   end
 end
@@ -25,31 +25,31 @@ function modechanger()
   if ttmc == 0 then
     if chance <0 then
       modeid = 0
-      modename = "Stable"
+      modename = "stable"
       delta = delta - 5
     elseif chance <12.5 then
       modeid = 1
-      modename = "Slow Rise"
+      modename = "slow rise"
       delta = delta - 1
     elseif chance <37.5 then
       modeid = 2
-      modename = "Slow Fall"
+      modename = "slow fall"
       delta = delta - 1
     elseif chance <62.5 then
       modeid = 3
-      modename = "Fast Rise"
+      modename = "fast rise"
       delta1 = delta - 0.015
       delta2 = delta + 0.135
       delta = delta1 + math.random() * (delta2 - delta1)
     elseif chance <75 then
       modeid = 4
-      modename = "Fast Fall"
+      modename = "fast fall"
       delta1 = delta - 0.135
       delta2 = delta + 0.015
       delta = delta1 + math.random() * (delta2 - delta1)
     elseif chance <87.5 then
       modeid = 5
-      modename = "Chaotic"
+      modename = "chaotic"
       delta1 = delta - 0.15
       delta2 = delta + 0.15
       delta = delta1 + math.random() * (delta2 - delta1)
@@ -62,7 +62,7 @@ function chaoticmodechanger()
     chance = math.random() * 100
     if chance <= 70 then
       modeid = 5
-      modename = "Chaotic"
+      modename = "chaotic"
       ttmc = math.random(1,10)
     else
       modechanger()
@@ -73,22 +73,22 @@ function chaoticmodechanger()
 end
 function changevalue()
   if modeid == 0 then
-    modename = "Stable"
+    modename = "stable"
     price1 = price - 0.025
     price2 = price + 0.025
     price = price1 + math.random() * (price2 - price1)
   elseif modeid == 1 then
-    modename = "Slow Rise"
+    modename = "slow rise"
     price1 = price - 0.005
     price2 = price + 0.045
     price = price1 + math.random() * (price2 - price1)
   elseif modeid == 2 then
-    modename = "Slow Fall"
+    modename = "slow fall"
     price1 = price - 0.045
     price2 = price + 0.005
     price = price1 + math.random() * (price2 - price1)
   elseif modeid == 3 then
-    modename = "Fast Rise"
+    modename = "fast rise"
     price1 = price
     price2 = price + 5
     price = price1 + math.random() * (price2 - price1)
@@ -102,7 +102,7 @@ function changevalue()
       delta = delta1 + math.random() * (delta2 - delta1)
     end
   elseif modeid == 4 then
-    modename = "Fast Fall"
+    modename = "fast fall"
     price1 = price - 5
     price2 = price
     price = price1 + math.random() * (price2 - price1)
@@ -113,7 +113,7 @@ function changevalue()
       price = price1 + math.random() * (price2 - price1)
     end
   elseif modeid == 5 then
-    modename = "Chaotic"
+    modename = "chaotic"
     if chance >= 50 then
       price1 = price - 5
       price2 = price + 5
@@ -128,7 +128,7 @@ function changevalue()
   chance = math.random() * 100
   if chance <= 97 and modeid == 3 then
     modeid = 4
-    modename = "Fast Fall" 
+    modename = "fast fall" 
   end
   ttmc = ttmc - 1
   price = price + (price * (delta/100))
