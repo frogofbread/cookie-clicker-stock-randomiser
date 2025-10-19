@@ -33,7 +33,6 @@ end
 function chaoticmodechanger()
   if modeid == 3 or modeid == 4 then
     chance = math.random() * 100
-    print(chance)
     if chance <= 70 then
       modeid = 5
       modename = "Chaotic"
@@ -132,5 +131,5 @@ end
 price = math.max(0.01, price)
 -- make sure price can't go below 0
 
-print("modeid:"..modeid,"modename:"..modename, "delta:"..delta, "price:"..price,"chance:"..chance)
+print("modeid:" .. modeid .. "\nmodename:" .. modename .. "\ndelta:" .. delta .. "\nprice:" .. price .. "\nchance:" .. chance)
 --print the variables
