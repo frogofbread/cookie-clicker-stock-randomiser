@@ -1,13 +1,11 @@
-modeid = 0
--- change this pls
-modename = "Stable"
--- leave unchanged, it will change for you
-delta = -2
--- important, change this too if needed
 price = 0
--- literally the most important bro
+-- self explanatory
+modename = "modename here"
+-- all lowercase, modename is put there
 ttmc = 6
--- time left to change mode
+-- Time till mode change
+delta = 0
+-- delta%
 function modeidcreator()
   if modename == "stable" then
     modeid = 0
