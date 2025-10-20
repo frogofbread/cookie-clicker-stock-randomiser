@@ -164,5 +164,5 @@ if chance <= 10 then
   delta2 = delta + 0.15
   delta = delta1 + math.random() * (delta2 - delta1)
 end
-print("price: " .. price.. "\nmode: " .. modename .."\nmodeid: "..modeid.. "\ntime to mode change: "..ttmc.."\ndelta: " .. delta)
+print("price: " .. price.. "\nmode: " .. modename .."\ntime to mode change: "..ttmc.."\ndelta: " .. delta)
 --print the variables
