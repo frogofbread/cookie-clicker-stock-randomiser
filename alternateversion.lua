@@ -22,35 +22,36 @@ function modeidcreator()
 end
 function modechanger()
   chance = math.random() * 100
+  print(chance)
   if ttmc == 0 then
     if modeid == 3 or modeid == 4 then
       chaoticmodechanger()
     end
-    if chance <0 then
+    if chance > 0 and chance <= 12.5 then
       modeid = 0
       modename = "stable"
       delta = delta - 5
-    elseif chance <12.5 then
+    elseif chance > 12.5 and chance <= 37.5  then
       modeid = 1
       modename = "slow rise"
       delta = delta - 1
-    elseif chance <37.5 then
+    elseif chance > 37.5 and chance <= 62.5 then
       modeid = 2
       modename = "slow fall"
       delta = delta - 1
-    elseif chance <62.5 then
+    elseif chance > 62.5 and chance <= 75 then
       modeid = 3
       modename = "fast rise"
       delta1 = delta - 0.015
       delta2 = delta + 0.135
       delta = delta1 + math.random() * (delta2 - delta1)
-    elseif chance <75 then
+    elseif chance > 75 and chance <= 87.5 then
       modeid = 4
       modename = "fast fall"
       delta1 = delta - 0.135
       delta2 = delta + 0.015
       delta = delta1 + math.random() * (delta2 - delta1)
-    elseif chance <87.5 then
+    elseif chance > 87.5 then
       modeid = 5
       modename = "chaotic"
       delta1 = delta - 0.15
@@ -132,7 +133,6 @@ function changevalue()
   if chance <= 3 and modeid == 3 then
     modeid = 4
     modename = "fast fall" 
-    ttmc = math.random(1,10)
   end
   ttmc = ttmc - 1
   price = price + (price * (delta/100))
@@ -164,5 +164,5 @@ if chance <= 10 then
   delta2 = delta + 0.15
   delta = delta1 + math.random() * (delta2 - delta1)
 end
-print("price: " .. price.. "\nmode: " .. modename .. "\ntime to mode change: "..ttmc.."\ndelta: " .. delta)
+print("price: " .. price.. "\nmode: " .. modename .."\nmodeid: "..modeid.. "\ntime to mode change: "..ttmc.."\ndelta: " .. delta)
 --print the variables
